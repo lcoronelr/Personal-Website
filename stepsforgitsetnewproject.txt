@@ -1,0 +1,32 @@
+📦 Step 2: On your laptop — Terminal Commands
+
+Navigate to your website folder:
+
+cd /path/to/your/website
+
+Initialize git (only if you haven’t already):
+
+git init
+
+Connect to your GitHub repo (replace this with your actual repo URL):
+
+git remote add origin https://github.com/YOUR_USERNAME/YOUR_REPO_NAME.git
+
+Add all files:
+
+git add .
+
+Commit them:
+
+git commit -m "Initial commit"
+
+Push to GitHub (main branch):
+
+git branch -M main
+git push -u origin main
+
+    If it asks for username and password:
+
+    Use your GitHub username as the username
+
+    Use your token (from Step 1) as the password
