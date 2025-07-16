@@ -98,8 +98,8 @@ const About = ({ githubData, loading }) => {
     { name: 'JavaScript', level: 80, iconClass: 'devicon-javascript-plain' },
     { name: 'C++', level: 80, iconClass: 'devicon-cplusplus-plain' },
     { name: 'CSS', level: 80, iconClass: 'devicon-css3-plain' },
-    {name:"R", level: 70, iconClass: 'devicon-R-plain'},
-    {name: 'Swift', level: 70, inconClass: 'devicon-swift-plain'},
+    { name: 'R', level: 70, iconClass: 'devicon-rstudio-plain' }, 
+    { name: 'Swift', level: 70, iconClass: 'devicon-swift-plain' },
   ];
 
   return (
@@ -118,14 +118,14 @@ const About = ({ githubData, loading }) => {
 
             <div className="about-content">
               <p className="highlight-paragraph">
-                I'm a Computer Science and Business Administration student at Washington and Lee, focused on building useful, efficient tools—from web apps to system-level programs. 
+                I'm a Computer Science and Business Administration student at Washington and Lee, focused on building useful, efficient tools. From web apps to terminal based programs. 
                 I work across the stack, and I care about writing clean code, building intuitive interfaces, and solving problems in smart, practical ways.
               </p>
               <p>
-Over the past few years, I’ve worked on everything from terminal-based tools and low-level networking programs to full-stack web projects. I enjoy learning how systems work under the hood just as much as designing something clean and minimal on the front end.
+                Over the past few years, I've worked on everything from terminal based tools and low level networking programs to full-stack web projects. I enjoy learning how systems work under the hood just as much as designing something clean and minimal on the front end.
               </p>
               <p> 
-                When I’m not coding, I’m usually experimenting with new ideas, refining personal projects, or reading up on the latest in tech—always with music on and coffee nearby.
+                When I'm not coding, I'm usually experimenting with new ideas, playing soccer, gaming, listening to music, goint out with friends, etc.....
               </p>
             </div>
 

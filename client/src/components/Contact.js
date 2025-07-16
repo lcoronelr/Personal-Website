@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
+import emailjs from '@emailjs/browser';
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -13,6 +14,11 @@ const Contact = () => {
   const contactRef = useRef(null);
   const formRef = useRef(null);
   const infoRef = useRef(null);
+
+  // Initialize EmailJS when component mounts
+  useEffect(() => {
+    emailjs.init('JoNJh2SGdLizd6T2q'); // Initialize with your public key
+  }, []);
 
   useEffect(() => {
     const observerOptions = {
@@ -62,22 +68,50 @@ const Contact = () => {
     setSubmitStatus(null);
 
     try {
-      const response = await fetch('/api/contact', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(formData),
-      });
+      console.log('Attempting to send email...', formData);
+      
+      // Method 1: Using emailjs.send (try this first)
+      const result = await emailjs.send(
+        'service_k3rtbxk',
+        'template_ypych7e',
+        {
+          from_name: formData.name,
+          from_email: formData.email,
+          subject: formData.subject,
+          message: formData.message,
+          to_name: 'Luis Coronel', // Add recipient name
+          reply_to: formData.email, // Add reply-to field
+        }
+        // Public key is already initialized, so we don't pass it here
+      );
 
-      if (response.ok) {
-        setSubmitStatus({ type: 'success', message: 'Message sent successfully!' });
-        setFormData({ name: '', email: '', subject: '', message: '' });
-      } else {
-        setSubmitStatus({ type: 'error', message: 'Failed to send message. Please try again.' });
-      }
+      console.log('Email sent successfully:', result);
+      setSubmitStatus({ 
+        type: 'success', 
+        message: 'Message sent successfully! I\'ll get back to you soon.' 
+      });
+      setFormData({ name: '', email: '', subject: '', message: '' });
+      
     } catch (error) {
-      setSubmitStatus({ type: 'error', message: 'Network error. Please try again.' });
+      console.error('Email error details:', error);
+      
+      // More detailed error handling
+      let errorMessage = 'Failed to send message. ';
+      
+      if (error.status === 422) {
+        errorMessage += 'Please check all fields are filled correctly.';
+      } else if (error.status === 400) {
+        errorMessage += 'Invalid email configuration.';
+      } else if (error.text) {
+        errorMessage += error.text;
+      } else {
+        errorMessage += 'Please try emailing me directly at luiscoronel2500@gmail.com';
+      }
+      
+      setSubmitStatus({ 
+        type: 'error', 
+        message: errorMessage
+      });
     } finally {
       setIsSubmitting(false);
     }
@@ -108,7 +142,7 @@ const Contact = () => {
                 <div className="contact-details">
                   <h4>Email</h4>
                   <p>luiscoronel2500@gmail.com</p>
-                  <span className="contact-note">Primary contact method</span>
+                  <span className="contact-note">or you can just send me a message ---></span>      
                 </div>
               </div>
 
@@ -121,6 +155,7 @@ const Contact = () => {
                 </div>
                 <div className="contact-details">
                   <h4>Location</h4>
+                  <p>Managua, Nicaragua</p>
                   <p>Lexington, VA</p>
                   <span className="contact-note">Eastern Daylight Time</span>
                 </div>

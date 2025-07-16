@@ -5,7 +5,7 @@ const Hero = () => {
   const [textIndex, setTextIndex] = useState(0);
   const [isDeleting, setIsDeleting] = useState(false);
   
-  const texts = ['Web Developer', 'CS & Business Undergrad', 'UI/UX Enthusiast', 'Problem Solver','Passionate Learner', ];
+  const texts = ['Web Developer', 'CS & Business Undergrad', 'UI/UX Enthusiast', 'Problem Solver','Quick Learner', ];
 
   useEffect(() => {
     const typeSpeed = isDeleting ? 50 : 100;
@@ -36,6 +36,9 @@ const Hero = () => {
   const scrollToProjects = () => {
     document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' });
   };
+  const scrollToGetInTouch = () => {
+    document.getElementById('contact')?.scrollIntoView({behavior: 'smooth'})
+  }
 
   return (
     <section id="home" className="hero">
@@ -51,7 +54,7 @@ const Hero = () => {
             </div>
 
             <p className="hero-description">
-              I’m a Computer Science and Business student at Washington and Lee, focused on building clean, efficient tools and experiences that help others.
+              I’m a Computer Science and Business Administration student at Washington and Lee University, focused on building clean, efficient tools and experiences that help others.
                Whether it’s low-level code or intuitive design, I care about doing things right and making them useful.
             </p>
 
@@ -60,9 +63,9 @@ const Hero = () => {
                 <span>View My Work</span>
               </button>
               
-              <a href="/resume.pdf" className="btn btn-glass" download>
-                <span>Resume</span>
-              </a>
+      <a href="/images/resume.pdf" className="btn btn-glass" download>
+        <span>Resume</span>
+      </a>
             </div>
 
             <div className="hero-social">
@@ -72,7 +75,7 @@ const Hero = () => {
               <a href="https://linkedin.com/in/luis-coronel" target="_blank" rel="noopener noreferrer" className="social-link">
                 <span>LinkedIn</span>
               </a>
-              <a href="mailto:luiscoronel2500@gmail.com" className="social-link">
+              <a className="social-link" onClick={scrollToGetInTouch}>
                 <span>Email</span>
               </a>
             </div>
