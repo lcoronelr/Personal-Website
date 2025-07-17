@@ -17,7 +17,7 @@ const Contact = () => {
 
   // Initialize EmailJS when component mounts
   useEffect(() => {
-    emailjs.init('JoNJh2SGdLizd6T2q'); // Initialize with your public key
+    emailjs.init('JoNJh2SGdLizd6T2q');
   }, []);
 
   useEffect(() => {
@@ -70,7 +70,6 @@ const Contact = () => {
     try {
       console.log('Attempting to send email...', formData);
       
-      // Method 1: Using emailjs.send (try this first)
       const result = await emailjs.send(
         'service_k3rtbxk',
         'template_ypych7e',
@@ -79,10 +78,9 @@ const Contact = () => {
           from_email: formData.email,
           subject: formData.subject,
           message: formData.message,
-          to_name: 'Luis Coronel', // Add recipient name
-          reply_to: formData.email, // Add reply-to field
+          to_name: 'Luis Coronel',
+          reply_to: formData.email,
         }
-        // Public key is already initialized, so we don't pass it here
       );
 
       console.log('Email sent successfully:', result);
@@ -95,7 +93,6 @@ const Contact = () => {
     } catch (error) {
       console.error('Email error details:', error);
       
-      // More detailed error handling
       let errorMessage = 'Failed to send message. ';
       
       if (error.status === 422) {
@@ -142,7 +139,7 @@ const Contact = () => {
                 <div className="contact-details">
                   <h4>Email</h4>
                   <p>luiscoronel2500@gmail.com</p>
-                  <span className="contact-note">or you can just send me a message ---></span>      
+                  <span className="contact-note">or you can just send me a message ---></span>
                 </div>
               </div>
 
@@ -173,6 +170,24 @@ const Contact = () => {
                   <p>Professional network</p>
                   <a href="https://linkedin.com/in/luis-coronel" target="_blank" rel="noopener noreferrer" className="contact-link">
                     Connect →
+                  </a>
+                </div>
+              </div>
+
+              <div className="contact-item">
+                <div className="contact-icon">
+                  <div className="icon-wrapper">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" style={{ color: '#FF0000' }}>
+                      <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+                    </svg>
+                    <div className="icon-ring"></div>
+                  </div>
+                </div>
+                <div className="contact-details">
+                  <h4>YouTube</h4>
+                  <p>Tech content & tutorials</p>
+                  <a href="https://youtube.com/@Nytso" target="_blank" rel="noopener noreferrer" className="contact-link">
+                    Subscribe →
                   </a>
                 </div>
               </div>
@@ -274,6 +289,18 @@ const Contact = () => {
                 <div className="btn-shine"></div>
               </button>
             </form>
+
+            {/* Auto-Rotating 3D Cube */}
+            <div className="cube-container">
+              <div className="cube">
+                <div className="cube-face front"></div>
+                <div className="cube-face back"></div>
+                <div className="cube-face right"></div>
+                <div className="cube-face left"></div>
+                <div className="cube-face top"></div>
+                <div className="cube-face bottom"></div>
+              </div>
+            </div>
           </div>
         </div>
       </div>

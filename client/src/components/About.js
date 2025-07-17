@@ -125,7 +125,7 @@ const About = ({ githubData, loading }) => {
                 Over the past few years, I've worked on everything from terminal based tools and low level networking programs to full-stack web projects. I enjoy learning how systems work under the hood just as much as designing something clean and minimal on the front end.
               </p>
               <p> 
-                When I'm not coding, I'm usually experimenting with new ideas, playing soccer, gaming, listening to music, goint out with friends, etc.....
+                When I'm not coding, I'm usually experimenting with new ideas, playing soccer, gaming, listening to music, streaming, goint out with friends, etc.....
               </p>
             </div>
 

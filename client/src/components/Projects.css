@@ -117,12 +117,13 @@
   will-change: transform, opacity, filter;
 }
 
-/* SMOOTH SLIDING 3-PROJECT LAYOUT - Bigger Boxes */
+/* SMOOTH SLIDING 3-PROJECT LAYOUT with SLOW ELEGANT TRANSITIONS */
 .project-slide.prev {
   transform: translateX(-450px) translateZ(-50px) scale(0.85);
   opacity: 0.7;
   filter: blur(1px);
   z-index: 2;
+  transition: all 1.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
 .project-slide.current {
@@ -130,6 +131,7 @@
   opacity: 1;
   filter: blur(0);
   z-index: 10;
+  transition: all 1.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
 .project-slide.next {
@@ -137,6 +139,15 @@
   opacity: 0.7;
   filter: blur(1px);
   z-index: 2;
+  transition: all  1.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+/* SLOW ELEGANT FADE OUT TRANSITION */
+.project-slide.fade-out {
+  opacity: 0 !important;
+  transform: scale(0.85) !important;
+  filter: blur(4px) !important;
+  transition: all 0.6s ease-out !important;
 }
 
 /* Hide all other positions - Only 3 projects visible */
@@ -636,5 +647,54 @@
   
   .project-slide.current .project-name {
     font-size: 1.3rem;
+  }
+}
+/* Project Image Icon Styles - ADD TO YOUR Projects.css */
+
+.project-image-icon {
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+  border-radius: 12px;
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  filter: drop-shadow(0 6px 15px rgba(0, 0, 0, 0.4));
+  border: 2px solid rgba(255, 255, 255, 0.1);
+}
+
+.project-slide.current .project-image-icon {
+  width: 100px;
+  height: 100px;
+  filter: drop-shadow(0 8px 20px rgba(0, 0, 0, 0.5));
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+.project-slide:hover .project-image-icon {
+  transform: scale(1.2) rotateY(5deg);
+  filter: drop-shadow(0 10px 25px rgba(0, 0, 0, 0.6));
+  border-color: rgba(255, 255, 255, 0.3);
+}
+
+/* Responsive adjustments for image icons */
+@media (max-width: 768px) {
+  .project-image-icon {
+    width: 60px;
+    height: 60px;
+  }
+  
+  .project-slide.current .project-image-icon {
+    width: 80px;
+    height: 80px;
+  }
+}
+
+@media (max-width: 480px) {
+  .project-image-icon {
+    width: 50px;
+    height: 50px;
+  }
+  
+  .project-slide.current .project-image-icon {
+    width: 70px;
+    height: 70px;
   }
 }

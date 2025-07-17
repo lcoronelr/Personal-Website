@@ -21,7 +21,7 @@ const Footer = () => {
           <div className="footer-main">
             <div className="footer-brand">
               <h3>Luis Coronel</h3>
-              <p>Computer science student at Washington and Lee university.</p>
+              <p>Computer science student at Washington and Lee University.</p>
             </div>
 
             <div className="footer-links">

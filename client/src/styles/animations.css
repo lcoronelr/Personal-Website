@@ -1294,3 +1294,78 @@
     display: none;
   }
 }
+
+.cube-container {
+  perspective: 1000px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 200px;
+  margin-top: 2rem;
+}
+
+.cube {
+  position: relative;
+  width: 80px;
+  height: 80px;
+  transform-style: preserve-3d;
+  animation: autoRotate 8s infinite linear;
+}
+
+@keyframes autoRotate {
+  0% {
+    transform: rotateX(0deg) rotateY(0deg);
+  }
+  25% {
+    transform: rotateX(90deg) rotateY(90deg);
+  }
+  50% {
+    transform: rotateX(180deg) rotateY(180deg);
+  }
+  75% {
+    transform: rotateX(270deg) rotateY(270deg);
+  }
+  100% {
+    transform: rotateX(360deg) rotateY(360deg);
+  }
+}
+
+.cube-face {
+  position: absolute;
+  width: 80px;
+  height: 80px;
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  background: rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(5px);
+  opacity: 0.9;
+}
+
+.cube-face.front {
+  transform: rotateY(0deg) translateZ(40px);
+  border-color: rgba(255, 255, 255, 0.9);
+}
+
+.cube-face.back {
+  transform: rotateY(180deg) translateZ(40px);
+  border-color: rgba(0, 122, 255, 0.8);
+}
+
+.cube-face.right {
+  transform: rotateY(90deg) translateZ(40px);
+  border-color: rgba(255, 255, 255, 0.7);
+}
+
+.cube-face.left {
+  transform: rotateY(-90deg) translateZ(40px);
+  border-color: rgba(0, 122, 255, 0.6);
+}
+
+.cube-face.top {
+  transform: rotateX(90deg) translateZ(40px);
+  border-color: rgba(255, 255, 255, 0.8);
+}
+
+.cube-face.bottom {
+  transform: rotateX(-90deg) translateZ(40px);
+  border-color: rgba(0, 122, 255, 0.7);
+}

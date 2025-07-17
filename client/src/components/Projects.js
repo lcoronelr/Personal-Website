@@ -19,13 +19,40 @@ const Projects = ({ projects, loading }) => {
     setIsTransitioning(true);
     setHoveredProject(null); // Clear hover state immediately
     
-    // Immediate smooth transition
-    setCurrentIndex((prev) => (prev + 1) % filteredProjects.length);
+    // Add fade-out class to all projects
+    const allSlides = document.querySelectorAll('.project-slide');
+    allSlides.forEach(slide => slide.classList.add('fade-out'));
     
-    // Faster transition - allow hover sooner
+    // After SLOW fade-out completes, change project
+    setTimeout(() => {
+      setCurrentIndex((prev) => (prev + 1) % filteredProjects.length);
+      
+      // Make new projects start invisible, then slowly fade in
+      setTimeout(() => {
+        const newSlides = document.querySelectorAll('.project-slide');
+        newSlides.forEach(slide => {
+          slide.classList.remove('fade-out');
+          slide.style.opacity = '0';
+          slide.style.transform = 'scale(0.9)';
+          slide.style.filter = 'blur(2px)';
+        });
+        
+        // Slowly fade them in
+        setTimeout(() => {
+          newSlides.forEach(slide => {
+            slide.style.transition = 'all 0.8s ease-out';
+            slide.style.opacity = '';
+            slide.style.transform = '';
+            slide.style.filter = '';
+          });
+        }, 50);
+      }, 50);
+    }, 650); // Wait longer for slow fade-out to complete
+    
+    // End transition
     setTimeout(() => {
       setIsTransitioning(false);
-    }, 400); // Reduced from 600ms
+    }, 1500);
   }, [isTransitioning, filteredProjects.length]);
 
   const goToPrev = React.useCallback(() => {
@@ -34,13 +61,40 @@ const Projects = ({ projects, loading }) => {
     setIsTransitioning(true);
     setHoveredProject(null); // Clear hover state immediately
     
-    // Immediate smooth transition
-    setCurrentIndex((prev) => (prev - 1 + filteredProjects.length) % filteredProjects.length);
+    // Add fade-out class to all projects
+    const allSlides = document.querySelectorAll('.project-slide');
+    allSlides.forEach(slide => slide.classList.add('fade-out'));
     
-    // Faster transition - allow hover sooner
+    // After SLOW fade-out completes, change project
+    setTimeout(() => {
+      setCurrentIndex((prev) => (prev - 1 + filteredProjects.length) % filteredProjects.length);
+      
+      // Make new projects start invisible, then slowly fade in
+      setTimeout(() => {
+        const newSlides = document.querySelectorAll('.project-slide');
+        newSlides.forEach(slide => {
+          slide.classList.remove('fade-out');
+          slide.style.opacity = '0';
+          slide.style.transform = 'scale(0.9)';
+          slide.style.filter = 'blur(2px)';
+        });
+        
+        // Slowly fade them in
+        setTimeout(() => {
+          newSlides.forEach(slide => {
+            slide.style.transition = 'all 0.8s ease-out';
+            slide.style.opacity = '';
+            slide.style.transform = '';
+            slide.style.filter = '';
+          });
+        }, 50);
+      }, 50);
+    }, 650); // Wait longer for slow fade-out to complete
+    
+    // End transition
     setTimeout(() => {
       setIsTransitioning(false);
-    }, 400); // Reduced from 600ms
+    }, 1500);
   }, [isTransitioning, filteredProjects.length]);
 
   const goToProject = React.useCallback((index) => {
@@ -49,13 +103,40 @@ const Projects = ({ projects, loading }) => {
     setIsTransitioning(true);
     setHoveredProject(null); // Clear hover state immediately
     
-    // Immediate smooth transition
-    setCurrentIndex(index);
+    // Add fade-out class to all projects
+    const allSlides = document.querySelectorAll('.project-slide');
+    allSlides.forEach(slide => slide.classList.add('fade-out'));
     
-    // Faster transition - allow hover sooner
+    // After SLOW fade-out completes, change project
+    setTimeout(() => {
+      setCurrentIndex(index);
+      
+      // Make new projects start invisible, then slowly fade in
+      setTimeout(() => {
+        const newSlides = document.querySelectorAll('.project-slide');
+        newSlides.forEach(slide => {
+          slide.classList.remove('fade-out');
+          slide.style.opacity = '0';
+          slide.style.transform = 'scale(0.9)';
+          slide.style.filter = 'blur(2px)';
+        });
+        
+        // Slowly fade them in
+        setTimeout(() => {
+          newSlides.forEach(slide => {
+            slide.style.transition = 'all 0.8s ease-out';
+            slide.style.opacity = '';
+            slide.style.transform = '';
+            slide.style.filter = '';
+          });
+        }, 50);
+      }, 50);
+    }, 650); // Wait longer for slow fade-out to complete
+    
+    // End transition
     setTimeout(() => {
       setIsTransitioning(false);
-    }, 400); // Reduced from 600ms
+    }, 1500);
   }, [isTransitioning, currentIndex]);
 
   useEffect(() => {
@@ -96,6 +177,61 @@ const Projects = ({ projects, loading }) => {
       PHP: '#777bb4'
     };
     return colors[language] || '#6b7280';
+  };
+
+  // Function to get project icon/image
+  const getProjectIcon = (projectName) => {
+    const name = projectName.toLowerCase();
+    
+    // Your specific projects with images
+    if (name.includes('personal') || name.includes('portfolio') || name.includes('website')) {
+      return <img src="images/website.png" alt="Personal Website" className="project-image-icon" />;
+    }
+    if (name.includes('interpreter') || name.includes('arduino')) {
+      return <img src="images/arduino.png" alt="Arduino Interpreter" className="project-image-icon" />;
+    }
+    if (name.includes('packet') || name.includes('analyzer')) {
+      return <img src="images/packetanalyzer.png" alt="Packet Analyzer" className="project-image-icon" />;
+    }
+    if (name.includes('whiteboard')) {
+      return <img src="images/whiteboard.png" alt="Whiteboard" className="project-image-icon" />;
+    }
+    if (name.includes('keyauth') || name.includes('launcher')) {
+      return <img src="images/keyauth.png" alt="KeyAuth Launcher" className="project-image-icon" />;
+    }
+    if (name.includes('crazyfile') || name.includes('opencv')) {
+      return <img src="images/crazyflie.png" alt="CrazyFile OpenCV" className="project-image-icon" />;
+    }
+    if (name.includes('simulation')) {
+      return <img src="images/crazyflie.png" alt="Simulation" className="project-image-icon" />;
+    }
+    if (name.includes('nemo')) {
+      return <img src="images/nemp.png" alt="Nemo" className="project-image-icon" />;
+    }
+    if (name.includes('kernel') || name.includes('spy')) {
+      return <img src="images/kernelspy.png" alt="Kernel Spy" className="project-image-icon" />;
+    }
+    if (name.includes('eduroam')) {
+      return <img src="images/eduroam.png" alt="Eduroam" className="project-image-icon" />;
+    }
+    if (name.includes('phreeqc') || name.includes('inverse')){
+      return <img src = "images/phreeqc.png" alt="Phreeqc" className='project-image-icon' />;
+    }
+    
+    // Fallback to language-based emojis for other projects
+    if (projectName.includes('JavaScript') || projectName.includes('JS')) return '🟨';
+    if (projectName.includes('TypeScript') || projectName.includes('TS')) return '🔷';
+    if (projectName.includes('Python') || projectName.includes('py')) return '🐍';
+    if (projectName.includes('React')) return '⚛️';
+    if (projectName.includes('HTML')) return '🌐';
+    if (projectName.includes('CSS')) return '🎨';
+    if (projectName.includes('Java')) return '☕';
+    if (projectName.includes('Vue')) return '💚';
+    if (projectName.includes('C++')) return '⚡';
+    if (projectName.includes('C')) return '🔧';
+    
+    // Default fallback
+    return '📁';
   };
 
   // Get ONLY 3 visible projects (prev, current, next) - No mirrors
@@ -196,17 +332,7 @@ const Projects = ({ projects, loading }) => {
                           <div className="image-placeholder">
                             <div className="placeholder-content">
                               <div className="project-icon">
-                                {project.language === 'JavaScript' && '🟨'}
-                                {project.language === 'TypeScript' && '🔷'}
-                                {project.language === 'Python' && '🐍'}
-                                {project.language === 'React' && '⚛️'}
-                                {project.language === 'HTML' && '🌐'}
-                                {project.language === 'CSS' && '🎨'}
-                                {project.language === 'Java' && '☕'}
-                                {project.language === 'Vue' && '💚'}
-                                {project.language === 'C++' && '⚡'}
-                                {project.language === 'C' && '🔧'}
-                                {(!project.language || !['JavaScript', 'TypeScript', 'Python', 'React', 'HTML', 'CSS', 'Java', 'Vue', 'C++', 'C'].includes(project.language)) && '📁'}
+                                {getProjectIcon(project.name)}
                               </div>
                               <span className="project-name">{project.name}</span>
                             </div>

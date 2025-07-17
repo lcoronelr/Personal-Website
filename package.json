@@ -1,7 +1,7 @@
 {
   "name": "portfolio-website",
   "version": "1.0.0",
-  "description": "Personal portfolio website showcasing projects and skills",
+  "description": "Personal portfolio website",
   "main": "server.js",
   "scripts": {
     "dev": "concurrently \"npm run server:dev\" \"npm run client:dev\"",
@@ -11,29 +11,18 @@
     "client": "cd client && npm start",
     "build": "cd client && npm run build",
     "start": "npm run build && NODE_ENV=production node server.js",
-    "install-all": "npm install && cd client && npm install"
+    "install-all": "npm install && cd client && npm install",
+    "cleanup": "npx kill-port 3000 5000",
+    "fresh-start": "npm run cleanup && npm run dev"
   },
   "dependencies": {
-    "@emailjs/browser": "^4.4.1",
-    "axios": "^1.6.0",
+    "express": "^4.18.2",
     "cors": "^2.8.5",
-    "dotenv": "^16.3.1",
-    "express": "^4.18.2"
+    "axios": "^1.6.0",
+    "dotenv": "^16.3.1"
   },
   "devDependencies": {
-    "concurrently": "^8.2.2",
-    "nodemon": "^3.0.1"
-  },
-  "engines": {
-    "node": ">=16.0.0"
-  },
-  "keywords": [
-    "portfolio",
-    "react",
-    "node",
-    "github",
-    "personal-website"
-  ],
-  "author": "Your Name",
-  "license": "MIT"
+    "nodemon": "^3.0.1",
+    "concurrently": "^8.2.2"
+  }
 }
