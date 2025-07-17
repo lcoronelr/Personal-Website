@@ -5,9 +5,9 @@ const Hero = () => {
   const [textIndex, setTextIndex] = useState(0);
   const [isDeleting, setIsDeleting] = useState(false);
   
-  const texts = ['Web Developer', 'CS & Business Undergrad', 'UI/UX Enthusiast', 'Problem Solver','Quick Learner', ];
-
   useEffect(() => {
+    const texts = ['Web Developer', 'CS & Business Undergrad', 'UI/UX Enthusiast', 'Problem Solver','Quick Learner'];
+    
     const typeSpeed = isDeleting ? 50 : 100;
     const currentFullText = texts[textIndex];
     
@@ -31,7 +31,7 @@ const Hero = () => {
     }, typeSpeed);
     
     return () => clearTimeout(timeout);
-  }, [typewriterText, isDeleting, textIndex, texts]);
+  }, [typewriterText, isDeleting, textIndex]);
 
   const scrollToProjects = () => {
     document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' });
@@ -54,8 +54,8 @@ const Hero = () => {
             </div>
 
             <p className="hero-description">
-              I’m a Computer Science and Business Administration student at Washington and Lee University, focused on building clean, efficient tools and experiences that help others.
-               Whether it’s low-level code or intuitive design, I care about doing things right and making them useful.
+              I'm a Computer Science and Business Administration student at Washington and Lee University, focused on building clean, efficient tools and experiences that help others.
+               Whether it's low-level code or intuitive design, I care about doing things right and making them useful.
             </p>
 
             <div className="hero-buttons">
@@ -75,9 +75,9 @@ const Hero = () => {
               <a href="https://linkedin.com/in/luis-coronel" target="_blank" rel="noopener noreferrer" className="social-link">
                 <span>LinkedIn</span>
               </a>
-              <a className="social-link" onClick={scrollToGetInTouch}>
+              <button className="social-link" onClick={scrollToGetInTouch}>
                 <span>Email</span>
-              </a>
+              </button>
             </div>
           </div>
 

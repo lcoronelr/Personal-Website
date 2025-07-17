@@ -6,7 +6,6 @@ const Projects = ({ projects, loading }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isTransitioning, setIsTransitioning] = useState(false);
   const [hoveredProject, setHoveredProject] = useState(null);
-  const [transitionDirection, setTransitionDirection] = useState('');
 
   const languages = ['all', ...new Set(projects.map(p => p.language).filter(Boolean))];
   const filteredProjects = filter === 'all' 
@@ -17,17 +16,14 @@ const Projects = ({ projects, loading }) => {
     if (isTransitioning || filteredProjects.length <= 1) return;
     
     setIsTransitioning(true);
-    setHoveredProject(null); // Clear hover state immediately
+    setHoveredProject(null);
     
-    // Add fade-out class to all projects
     const allSlides = document.querySelectorAll('.project-slide');
     allSlides.forEach(slide => slide.classList.add('fade-out'));
     
-    // After SLOW fade-out completes, change project
     setTimeout(() => {
       setCurrentIndex((prev) => (prev + 1) % filteredProjects.length);
       
-      // Make new projects start invisible, then slowly fade in
       setTimeout(() => {
         const newSlides = document.querySelectorAll('.project-slide');
         newSlides.forEach(slide => {
@@ -37,7 +33,6 @@ const Projects = ({ projects, loading }) => {
           slide.style.filter = 'blur(2px)';
         });
         
-        // Slowly fade them in
         setTimeout(() => {
           newSlides.forEach(slide => {
             slide.style.transition = 'all 0.8s ease-out';
@@ -47,9 +42,8 @@ const Projects = ({ projects, loading }) => {
           });
         }, 50);
       }, 50);
-    }, 650); // Wait longer for slow fade-out to complete
+    }, 650);
     
-    // End transition
     setTimeout(() => {
       setIsTransitioning(false);
     }, 1500);
@@ -59,17 +53,14 @@ const Projects = ({ projects, loading }) => {
     if (isTransitioning || filteredProjects.length <= 1) return;
     
     setIsTransitioning(true);
-    setHoveredProject(null); // Clear hover state immediately
+    setHoveredProject(null);
     
-    // Add fade-out class to all projects
     const allSlides = document.querySelectorAll('.project-slide');
     allSlides.forEach(slide => slide.classList.add('fade-out'));
     
-    // After SLOW fade-out completes, change project
     setTimeout(() => {
       setCurrentIndex((prev) => (prev - 1 + filteredProjects.length) % filteredProjects.length);
       
-      // Make new projects start invisible, then slowly fade in
       setTimeout(() => {
         const newSlides = document.querySelectorAll('.project-slide');
         newSlides.forEach(slide => {
@@ -79,7 +70,6 @@ const Projects = ({ projects, loading }) => {
           slide.style.filter = 'blur(2px)';
         });
         
-        // Slowly fade them in
         setTimeout(() => {
           newSlides.forEach(slide => {
             slide.style.transition = 'all 0.8s ease-out';
@@ -89,9 +79,8 @@ const Projects = ({ projects, loading }) => {
           });
         }, 50);
       }, 50);
-    }, 650); // Wait longer for slow fade-out to complete
+    }, 650);
     
-    // End transition
     setTimeout(() => {
       setIsTransitioning(false);
     }, 1500);
@@ -101,17 +90,14 @@ const Projects = ({ projects, loading }) => {
     if (isTransitioning || index === currentIndex) return;
     
     setIsTransitioning(true);
-    setHoveredProject(null); // Clear hover state immediately
+    setHoveredProject(null);
     
-    // Add fade-out class to all projects
     const allSlides = document.querySelectorAll('.project-slide');
     allSlides.forEach(slide => slide.classList.add('fade-out'));
     
-    // After SLOW fade-out completes, change project
     setTimeout(() => {
       setCurrentIndex(index);
       
-      // Make new projects start invisible, then slowly fade in
       setTimeout(() => {
         const newSlides = document.querySelectorAll('.project-slide');
         newSlides.forEach(slide => {
@@ -121,7 +107,6 @@ const Projects = ({ projects, loading }) => {
           slide.style.filter = 'blur(2px)';
         });
         
-        // Slowly fade them in
         setTimeout(() => {
           newSlides.forEach(slide => {
             slide.style.transition = 'all 0.8s ease-out';
@@ -131,9 +116,8 @@ const Projects = ({ projects, loading }) => {
           });
         }, 50);
       }, 50);
-    }, 650); // Wait longer for slow fade-out to complete
+    }, 650);
     
-    // End transition
     setTimeout(() => {
       setIsTransitioning(false);
     }, 1500);
@@ -147,7 +131,7 @@ const Projects = ({ projects, loading }) => {
     if (filteredProjects.length > 1 && !hoveredProject && !isTransitioning) {
       const interval = setInterval(() => {
         goToNext();
-      }, 5000); // Longer auto-advance interval
+      }, 5000);
       return () => clearInterval(interval);
     }
   }, [currentIndex, filteredProjects.length, hoveredProject, goToNext, isTransitioning]);
@@ -179,11 +163,9 @@ const Projects = ({ projects, loading }) => {
     return colors[language] || '#6b7280';
   };
 
-  // Function to get project icon/image
   const getProjectIcon = (projectName) => {
     const name = projectName.toLowerCase();
     
-    // Your specific projects with images
     if (name.includes('personal') || name.includes('portfolio') || name.includes('website')) {
       return <img src="images/website.png" alt="Personal Website" className="project-image-icon" />;
     }
@@ -218,7 +200,6 @@ const Projects = ({ projects, loading }) => {
       return <img src = "images/phreeqc.png" alt="Phreeqc" className='project-image-icon' />;
     }
     
-    // Fallback to language-based emojis for other projects
     if (projectName.includes('JavaScript') || projectName.includes('JS')) return '🟨';
     if (projectName.includes('TypeScript') || projectName.includes('TS')) return '🔷';
     if (projectName.includes('Python') || projectName.includes('py')) return '🐍';
@@ -230,11 +211,9 @@ const Projects = ({ projects, loading }) => {
     if (projectName.includes('C++')) return '⚡';
     if (projectName.includes('C')) return '🔧';
     
-    // Default fallback
     return '📁';
   };
 
-  // Get ONLY 3 visible projects (prev, current, next) - No mirrors
   const getVisibleProjects = () => {
     if (filteredProjects.length === 0) return [];
     if (filteredProjects.length === 1) return [{ ...filteredProjects[0], position: 'current' }];
@@ -242,7 +221,6 @@ const Projects = ({ projects, loading }) => {
     const positions = [];
     const totalProjects = filteredProjects.length;
     
-    // Simple 3-project layout
     const prevIndex = (currentIndex - 1 + totalProjects) % totalProjects;
     const nextIndex = (currentIndex + 1) % totalProjects;
     
@@ -282,7 +260,6 @@ const Projects = ({ projects, loading }) => {
           </div>
         ) : (
           <>
-            {/* Simple Filter Tabs */}
             <div className="filter-tabs">
               {languages.map((lang) => (
                 <button
@@ -295,11 +272,8 @@ const Projects = ({ projects, loading }) => {
               ))}
             </div>
 
-            {/* Netflix-Style Smooth Carousel */}
             <div className="carousel-container">
               <div className="carousel-track">
-
-                {/* Simple Clean Projects Display */}
                 <div className={`projects-display ${isTransitioning ? 'transitioning' : ''}`}>
                   <div className="projects-carousel">
                     {visibleProjects.map((project) => (
@@ -307,27 +281,24 @@ const Projects = ({ projects, loading }) => {
                         key={project.key}
                         className={`project-slide ${project.position}`}
                         onMouseEnter={() => {
-                          // Allow hover immediately on current project, but prevent on transitioning side projects
                           if (project.position === 'current' || !isTransitioning) {
                             setHoveredProject(project.id);
                           }
                         }}
                         onMouseLeave={() => setHoveredProject(null)}
                         onClick={() => {
-                          if (isTransitioning) return; // Prevent clicks during transition
+                          if (isTransitioning) return;
                           if (project.position === 'prev') {
                             goToPrev();
                           } else if (project.position === 'next') {
                             goToNext();
                           } else if (project.position === 'current') {
-                            // Current project click - maybe open in new tab or show more details
                             if (project.html_url) {
                               window.open(project.html_url, '_blank');
                             }
                           }
                         }}
                       >
-                        {/* Enhanced Project Image Area */}
                         <div className="project-image">
                           <div className="image-placeholder">
                             <div className="placeholder-content">
@@ -338,7 +309,6 @@ const Projects = ({ projects, loading }) => {
                             </div>
                           </div>
                           
-                          {/* Enhanced hover overlay for center project - Always available */}
                           {project.position === 'current' && (
                             <div className={`project-overlay ${hoveredProject === project.id ? 'visible' : ''}`}>
                               <div className="overlay-content">
@@ -397,7 +367,6 @@ const Projects = ({ projects, loading }) => {
                 </div>
               </div>
 
-              {/* Enhanced Dots Navigation */}
               <div className="dots-nav">
                 {filteredProjects.map((_, index) => (
                   <button
@@ -423,7 +392,6 @@ const Projects = ({ projects, loading }) => {
               </div>
             )}
 
-            {/* GitHub Link */}
             <div className="github-link">
               <a 
                 href="https://github.com/Nytso2" 
