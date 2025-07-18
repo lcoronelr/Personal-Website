@@ -185,7 +185,7 @@ const Contact = () => {
                 </div>
                 <div className="contact-details">
                   <h4>YouTube</h4>
-                  <p>tech content & cool gaming videos.</p>
+                  <p>Tech content & cool gaming videos.</p>
                   <a href="https://youtube.com/@Nytso2" target="_blank" rel="noopener noreferrer" className="contact-link">
                     Subscribe →
                   </a>
