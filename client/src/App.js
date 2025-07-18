@@ -79,17 +79,73 @@ function App() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  // Fetch GitHub data
+  // Fetch GitHub data - UPDATED TO CALL GITHUB API DIRECTLY
   useEffect(() => {
     const fetchGitHubData = async () => {
       try {
-        const response = await fetch(`/api/github/${GITHUB_USERNAME}`);
-        if (response.ok) {
-          const data = await response.json();
-          setGithubData(data);
+        // Fetch user info directly from GitHub
+        const userResponse = await fetch(`https://api.github.com/users/${GITHUB_USERNAME}`);
+        if (!userResponse.ok) {
+          throw new Error('Failed to fetch user data');
         }
+        const userData = await userResponse.json();
+
+        // Fetch repositories directly from GitHub
+        const reposResponse = await fetch(`https://api.github.com/users/${GITHUB_USERNAME}/repos?sort=updated&per_page=50`);
+        if (!reposResponse.ok) {
+          throw new Error('Failed to fetch repos data');
+        }
+        const reposData = await reposResponse.json();
+        
+        // Filter and sort repos (same logic as your backend)
+        const repos = reposData
+          .filter(repo => !repo.fork && !repo.archived)
+          .sort((a, b) => new Date(b.updated_at) - new Date(a.updated_at))
+          .slice(0, 12)
+          .map(repo => ({
+            id: repo.id,
+            name: repo.name,
+            description: repo.description,
+            html_url: repo.html_url,
+            homepage: repo.homepage,
+            language: repo.language,
+            stargazers_count: repo.stargazers_count,
+            forks_count: repo.forks_count,
+            updated_at: repo.updated_at,
+            topics: repo.topics || []
+          }));
+
+        const result = {
+          user: {
+            name: userData.name,
+            bio: userData.bio,
+            location: userData.location,
+            public_repos: userData.public_repos,
+            followers: userData.followers,
+            following: userData.following,
+            avatar_url: userData.avatar_url,
+            html_url: userData.html_url
+          },
+          repos: repos
+        };
+        
+        setGithubData(result);
       } catch (error) {
         console.error('Error fetching GitHub data:', error);
+        // Set some default data so the site still works
+        setGithubData({
+          user: {
+            name: 'Luis Coronel',
+            bio: 'Computer Science & Business Administration Student',
+            location: 'Managua, Nicaragua',
+            public_repos: 0,
+            followers: 0,
+            following: 0,
+            avatar_url: '',
+            html_url: `https://github.com/${GITHUB_USERNAME}`
+          },
+          repos: []
+        });
       } finally {
         setLoading(false);
       }
