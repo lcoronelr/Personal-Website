@@ -167,7 +167,7 @@ const Contact = () => {
                 <div className="contact-details">
                   <h4>LinkedIn</h4>
                   <p>Professional network</p>
-                  <a href="https://linkedin.com/in/luis-coronel" target="_blank" rel="noopener noreferrer" className="contact-link">
+                  <a href="https://www.linkedin.com/in/luis-coronel-8776442ab/" target="_blank" rel="noopener noreferrer" className="contact-link">
                     Connect →
                   </a>
                 </div>
