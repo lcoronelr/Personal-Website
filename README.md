@@ -40,7 +40,7 @@ cd client && npm install && cd ..
 ```
 2. Start development servers
 ```bash
-bashnpm run dev
+npm run dev
 ```
 3. Open http://localhost:3000 in your browser
 ## License
