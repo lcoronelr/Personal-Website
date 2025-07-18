@@ -152,7 +152,6 @@ const Contact = () => {
                 </div>
                 <div className="contact-details">
                   <h4>Location</h4>
-                  <p>Managua, Nicaragua</p>
                   <p>Lexington, VA</p>
                   <span className="contact-note">Eastern Daylight Time</span>
                 </div>
