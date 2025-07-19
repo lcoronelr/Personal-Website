@@ -128,6 +128,7 @@ const Contact = () => {
               <p>Ready to bring your ideas to life? I'm always excited to work on new projects and collaborate with innovative minds.</p>
             </div>
 
+            <div className="contact-methods">
               <div className="contact-item">
                 <div className="contact-icon">
                   <div className="icon-wrapper">
