@@ -128,20 +128,30 @@ const Contact = () => {
               <p>Ready to bring your ideas to life? I'm always excited to work on new projects and collaborate with innovative minds.</p>
             </div>
 
-            <div className="contact-methods">
-              <div className="contact-item">
-                <div className="contact-icon">
-                  <div className="icon-wrapper">
-                    <span>📧</span>
-                    <div className="icon-ring"></div>
-                  </div>
-                </div>
-                <div className="contact-details">
-                  <h4>Email</h4>
-                  <p>luiscoronel2500@gmail.com</p>
-                  <span className="contact-note">or you can just send me a message ---></span>
-                </div>
-              </div>    
+           <div className="contact-item">
+  <div className="contact-icon">
+    <div className="icon-wrapper">
+      <svg
+        width="24"
+        height="24"
+        viewBox="0 0 245 240"
+        fill="currentColor"
+        xmlns="http://www.w3.org/2000/svg"
+        style={{ color: '#5865F2' }}
+      >
+        <path d="M104.4 104.2c-5.7 0-10.2 4.9-10.2 11s4.6 11 10.2 11c5.7 0 10.2-4.9 10.2-11 .1-6.1-4.5-11-10.2-11zm36.2 0c-5.7 0-10.2 4.9-10.2 11s4.6 11 10.2 11c5.7 0 10.2-4.9 10.2-11s-4.5-11-10.2-11z" />
+        <path d="M189.5 20h-134C41.7 20 30 31.7 30 46.4v147.2c0 14.7 11.7 26.4 25.5 26.4h114.9l-5.4-18.8 13 12.2 12.3 11.3 21.8 19.5V46.4c0-14.7-11.7-26.4-25.6-26.4zM163 162s-4.6-5.5-8.4-10.3c16.7-4.7 23-15.1 23-15.1-5.2 3.4-10.1 5.8-14.5 7.4-6.3 2.6-12.3 4.3-18.2 5.3-12 2.3-23 1.7-32.6-.1-7.2-1.4-13.5-3.3-18.7-5.3-2.9-1.1-6-2.4-9.1-4.1-.4-.2-.8-.4-1.2-.6-.3-.2-.5-.3-.7-.4-3.2-1.8-5-3-5-3s6.1 10.2 22.3 15c-3.8 4.9-8.5 10.7-8.5 10.7-28.1-.9-38.8-19.3-38.8-19.3 0-41 18.4-74.2 18.4-74.2 18.4-13.7 35.9-13.3 35.9-13.3l1.3 1.5c-23 6.7-33.6 16.8-33.6 16.8s2.8-1.5 7.5-3.6c13.6-6 24.4-7.6 28.9-8 .7-.1 1.3-.2 2-.2 7.2-.9 15.3-1.1 23.7-.2 11.2 1.3 23.2 4.6 35.4 11.3 0 0-10.1-9.6-31.8-16.3l1.8-2s17.5-.4 35.9 13.3c0 0 18.4 33.2 18.4 74.2 0 .1-10.8 18.4-38.9 19.3z" />
+      </svg>
+      <div className="icon-ring"></div>
+    </div>
+  </div>
+  <div className="contact-details">
+    <h4>Discord</h4>
+    <p>@luiscoronel</p>
+    <span className="contact-note">Feel free to DM me or reach out through a server.</span>
+  </div>
+</div>
+
 
         <div className="contact-item">
                 <div className="contact-icon">
