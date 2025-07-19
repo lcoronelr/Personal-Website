@@ -128,25 +128,20 @@ const Contact = () => {
               <p>Ready to bring your ideas to life? I'm always excited to work on new projects and collaborate with innovative minds.</p>
             </div>
 
-<div className="contact-item">
-  <div className="contact-icon">
-    <div className="icon-wrapper">
-      <img 
-        src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/discord.svg" 
-        alt="Discord" 
-        width="24" 
-        height="24" 
-        style={{ filter: 'invert(1)' }}
-      />
-      <div className="icon-ring"></div>
-    </div>
-  </div>
-  <div className="contact-details">
-    <h4>Discord</h4>
-    <p>YOUR_DISCORD_ID_HERE</p>
-    <span className="contact-note">or you can just send me a message ---></span>
-  </div>
-</div>
+            <div className="contact-methods">
+              <div className="contact-item">
+                <div className="contact-icon">
+                  <div className="icon-wrapper">
+                    <span>📧</span>
+                    <div className="icon-ring"></div>
+                  </div>
+                </div>
+                <div className="contact-details">
+                  <h4>Email</h4>
+                  <p>luiscoronel2500@gmail.com</p>
+                  <span className="contact-note">or you can just send me a message ---></span>
+                </div>
+              </div>    
 
         <div className="contact-item">
                 <div className="contact-icon">
