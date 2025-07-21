@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';asdasd
+import React, { useState, useEffect } from 'react';
 import './Projects.css';
 
 const Projects = ({ projects, loading }) => {
