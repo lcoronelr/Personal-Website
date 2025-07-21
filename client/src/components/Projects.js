@@ -7,10 +7,23 @@ const Projects = ({ projects, loading }) => {
   const [isTransitioning, setIsTransitioning] = useState(false);
   const [hoveredProject, setHoveredProject] = useState(null);
 
-  const languages = ['all', ...new Set(projects.map(p => p.language).filter(Boolean))];
+  // Consolidate web technologies into "Frontend Development"
+  const consolidateLanguages = (projects) => {
+    const webTechnologies = ['HTML', 'CSS', 'JavaScript', 'TypeScript', 'React', 'Vue', 'Angular'];
+    
+    return projects.map(project => {
+      if (webTechnologies.includes(project.language)) {
+        return { ...project, language: 'Frontend Development' };
+      }
+      return project;
+    });
+  };
+
+  const consolidatedProjects = consolidateLanguages(projects);
+  const languages = ['all', ...new Set(consolidatedProjects.map(p => p.language).filter(Boolean))];
   const filteredProjects = filter === 'all' 
-    ? projects.slice(0, 20)
-    : projects.filter(p => p.language === filter).slice(0, 20);
+    ? consolidatedProjects.slice(0, 20)
+    : consolidatedProjects.filter(p => p.language === filter).slice(0, 20);
 
   const goToNext = React.useCallback(() => {
     if (isTransitioning || filteredProjects.length <= 1) return;
@@ -145,6 +158,7 @@ const Projects = ({ projects, loading }) => {
 
   const getLanguageColor = (language) => {
     const colors = {
+      'Frontend Development': '#61dafb', // React blue for web technologies
       JavaScript: '#f7df1e',
       TypeScript: '#3178c6',
       Python: '#3776ab',
@@ -163,9 +177,10 @@ const Projects = ({ projects, loading }) => {
     return colors[language] || '#6b7280';
   };
 
-  const getProjectIcon = (projectName) => {
+  const getProjectIcon = (projectName, language) => {
     const name = projectName.toLowerCase();
     
+    // Check for specific project types first
     if (name.includes('personal') || name.includes('portfolio') || name.includes('website')) {
       return <img src="images/website.png" alt="Personal Website" className="project-image-icon" />;
     }
@@ -197,19 +212,14 @@ const Projects = ({ projects, loading }) => {
       return <img src="images/eduroam.png" alt="Eduroam" className="project-image-icon" />;
     }
     if (name.includes('phreeqc') || name.includes('inverse')){
-      return <img src = "images/phreeqc.png" alt="Phreeqc" className='project-image-icon' />;
+      return <img src="images/phreeqc.png" alt="Phreeqc" className='project-image-icon' />;
     }
     
-    if (projectName.includes('JavaScript') || projectName.includes('JS')) return '🟨';
-    if (projectName.includes('TypeScript') || projectName.includes('TS')) return '🔷';
-    if (projectName.includes('Python') || projectName.includes('py')) return '🐍';
-    if (projectName.includes('React')) return '⚛️';
-    if (projectName.includes('HTML')) return '🌐';
-    if (projectName.includes('CSS')) return '🎨';
-    if (projectName.includes('Java')) return '☕';
-    if (projectName.includes('Vue')) return '💚';
-    if (projectName.includes('C++')) return '⚡';
-    if (projectName.includes('C')) return '🔧';
+    // Use language-based icons for Frontend Development
+    if (language === 'Frontend Development') return '🌐';
+    if (language === 'Python') return '🐍';
+    if (language === 'Java') return '☕';
+    if (language === 'C++' || language === 'C') return '⚡';
     
     return '📁';
   };
@@ -303,7 +313,7 @@ const Projects = ({ projects, loading }) => {
                           <div className="image-placeholder">
                             <div className="placeholder-content">
                               <div className="project-icon">
-                                {getProjectIcon(project.name)}
+                                {getProjectIcon(project.name, project.language)}
                               </div>
                               <span className="project-name">{project.name}</span>
                             </div>
@@ -313,7 +323,7 @@ const Projects = ({ projects, loading }) => {
                             <div className={`project-overlay ${hoveredProject === project.id ? 'visible' : ''}`}>
                               <div className="overlay-content">
                                 <h3>{project.name}</h3>
-                                <p>{project.description || 'A modern web application built with cutting-edge technologies.'}</p>
+                                <p>{project.description || 'A modern application built with cutting-edge technologies.'}</p>
                                 
                                 <div className="project-meta">
                                   <span 
