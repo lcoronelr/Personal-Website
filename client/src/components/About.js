@@ -158,29 +158,10 @@ const About = ({ githubData, loading }) => {
                     className="skills-icons-row"
                   />
                   <img
-                    src="https://skillicons.dev/icons?i=ps,pr,ae&perline=3"
-                    alt="Design Tools: Photoshop, Premiere Pro, After Effects"
+                    src="https://skillicons.dev/icons?i=ps,pr,ae,au,blender,autocad&perline=6"
+                    alt="Design Tools: Photoshop, Premiere Pro, After Effects, Audition, Blender, AutoCAD"
                     className="skills-icons-row"
                   />
-                  <div className="custom-skills-row">
-                    <img
-                      src="/images/autopsy.png"
-                      alt="Autopsy Digital Forensics"
-                      className="custom-skill-icon"
-                      title="Autopsy"
-                    />
-                    <img
-                      src="https://skillicons.dev/icons?i=blender&perline=1"
-                      alt="Blender"
-                      className="skills-icons-row"
-                    />
-                    <img
-                      src="/images/idapro.png"
-                      alt="IDA Pro Reverse Engineering"
-                      className="custom-skill-icon"
-                      title="IDA Pro"
-                    />
-                  </div>
                   <img
                     src="https://skillicons.dev/icons?i=swift,java,arduino,unreal,discord,arch&perline=6"
                     alt="Additional Skills: Swift, Java, Arduino, Unreal Engine, Discord, Arch Linux"
