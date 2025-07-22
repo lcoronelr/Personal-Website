@@ -164,7 +164,7 @@ const About = ({ githubData, loading }) => {
                   />
                   <div className="custom-skills-row">
                     <img
-                      src="/images/autopsy-icon.png"
+                      src="/images/autopsy.png"
                       alt="Autopsy Digital Forensics"
                       className="custom-skill-icon"
                       title="Autopsy"
@@ -175,7 +175,7 @@ const About = ({ githubData, loading }) => {
                       className="skills-icons-row"
                     />
                     <img
-                      src="/images/ida-pro-icon.png"
+                      src="/images/idapro.png"
                       alt="IDA Pro Reverse Engineering"
                       className="custom-skill-icon"
                       title="IDA Pro"
