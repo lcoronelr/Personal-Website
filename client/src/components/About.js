@@ -152,20 +152,16 @@ const About = ({ githubData, loading }) => {
               <h3>More Tools & Platforms</h3>
               <div className="skills-icons-container">
                 <div className="skills-icons-wrapper">
-                 <img
-                    src="https://skillicons.dev/icons?i=github,aws,linux,gdb,vim,vscode&perline=6"
-                    alt="Development Tools: GitHub, AWS, Linux, GDB, Vim, VS Code"
+                  <img
+                    src="https://skillicons.dev/icons?i=github,aws,linux,docker,vim,vscode&perline=6"
+                    alt="Development Tools: GitHub, AWS, Linux, Docker, Vim, VS Code"
                     className="skills-icons-row"
                   />
                   <img
-                    src="https://skillicons.dev/icons?i=ps,pr,ae,au,blender&perline=5"
-                    alt="Design Tools: Photoshop, Premiere Pro, After Effects, Audition, Blender"
+                    src="https://skillicons.dev/icons?i=ps,pr,ae,au,blender,autocad&perline=6"
+                    alt="Design Tools: Photoshop, Premiere Pro, After Effects, Audition, Blender, AutoCAD"
                     className="skills-icons-row"
                   />
-                  <div className="custom-tools">
-                    <img src="https://www.autopsy.com/wp-content/uploads/2014/02/autopsy_logo.png" alt="Autopsy" width="46" height="46" style={{backgroundColor: 'white', borderRadius: '8px', padding: '4px'}} />
-                    <img src="https://hex-rays.com/wp-content/uploads/2019/10/ida_logo.svg" alt="IDA Pro" width="46" height="46" />
-                  </div>
                   <img
                     src="https://skillicons.dev/icons?i=swift,java,arduino,unreal,discord,arch&perline=6"
                     alt="Additional Skills: Swift, Java, Arduino, Unreal Engine, Discord, Arch Linux"
