@@ -2082,19 +2082,4 @@
   .github-cta {
     padding: 2rem 1.5rem;
   }
-.custom-tools {
-  display: flex;
-  gap: 8px;
-  margin-top: 8px;
-  align-items: center;
-}
-
-.custom-tools img {
-  border-radius: 8px;
-  transition: transform 0.3s ease;
-}
-
-.custom-tools img:hover {
-  transform: scale(1.1);
-}
 }
