@@ -2082,7 +2082,6 @@
   .github-cta {
     padding: 2rem 1.5rem;
   }
-}
 .custom-tools {
   display: flex;
   gap: 8px;
@@ -2097,4 +2096,5 @@
 
 .custom-tools img:hover {
   transform: scale(1.1);
+}
 }
