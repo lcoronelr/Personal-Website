@@ -76,7 +76,9 @@ const Hero = () => {
                 <span>LinkedIn</span>
               </a>
               <button className="social-link" onClick={scrollToGetInTouch}>
+                <a target="_blank" rel="noopener noreferrer" className="social-link">
                 <span>Email</span>
+                </a>
               </button>
             </div>
           </div>
