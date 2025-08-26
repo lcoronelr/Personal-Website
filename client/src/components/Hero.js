@@ -75,12 +75,16 @@ const Hero = () => {
               <a href="https://www.linkedin.com/in/luis-coronel-8776442ab/" target="_blank" rel="noopener noreferrer" className="social-link">
                 <span>LinkedIn</span>
               </a>
-              <button className="social-link" onClick={scrollToGetInTouch}>
-                <a target="_blank" rel="noopener noreferrer" className="social-link">
-                <span>Email</span>
-                </a>
-              </button>
-            </div>
+<a
+    href="#get-in-touch" // or just use "#" if you only want JS scroll
+    onClick={(e) => {
+      e.preventDefault();
+      scrollToGetInTouch();
+    }}
+    className="social-link"
+  >
+    <span>Email</span>
+  </a>
           </div>
 
           <div className="hero-visual">
