@@ -36,6 +36,7 @@ const Hero = () => {
   const scrollToProjects = () => {
     document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' });
   };
+
   const scrollToGetInTouch = () => {
     document.getElementById('contact')?.scrollIntoView({behavior: 'smooth'})
   }
@@ -48,26 +49,22 @@ const Hero = () => {
             <h1 className="hero-title">
               Hi, I'm <span className="text-gradient">Luis Coronel</span>
             </h1>
-
             <div className="hero-subtitle">
               {typewriterText}<span className="cursor">|</span>
             </div>
-
             <p className="hero-description">
               I'm a Computer Science and Business Administration student at Washington and Lee University, focused on building clean, efficient tools and experiences that help others.
                Whether it's low-level code or intuitive design, I care about doing things right and making them useful.
             </p>
-
             <div className="hero-buttons">
               <button className="btn btn-primary" onClick={scrollToProjects}>
                 <span>View My Work</span>
               </button>
               
-      <a href="/images/resume.pdf" className="btn btn-glass" download>
-        <span>Resume</span>
-      </a>
+              <a href="/images/resume.pdf" className="btn btn-glass" download>
+                <span>Resume</span>
+              </a>
             </div>
-
             <div className="hero-social">
               <a href="https://github.com/Nytso2" target="_blank" rel="noopener noreferrer" className="social-link">
                 <span>GitHub</span>
@@ -75,11 +72,11 @@ const Hero = () => {
               <a href="https://www.linkedin.com/in/luis-coronel-8776442ab/" target="_blank" rel="noopener noreferrer" className="social-link">
                 <span>LinkedIn</span>
               </a>
-  <button type="button" onClick={scrollToGetInTouch} className="social-link" >
-    <span>Email</span>
-  </button>
+              <button type="button" onClick={scrollToGetInTouch} className="social-link">
+                <span>Email</span>
+              </button>
+            </div>
           </div>
-
           <div className="hero-visual">
             <div className="hero-avatar">
               <div className="avatar-ring ring-1"></div>
