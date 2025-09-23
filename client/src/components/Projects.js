@@ -404,7 +404,7 @@ const Projects = ({ projects, loading }) => {
 
             <div className="github-link">
               <a 
-                href="https://github.com/Nytso2" 
+                href="https://github.com/lcoronelr" 
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="btn-github"

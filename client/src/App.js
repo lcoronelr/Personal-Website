@@ -12,7 +12,7 @@ function App() {
   const [activeSection, setActiveSection] = useState('home');
   
   // Replace with your GitHub username
-  const GITHUB_USERNAME = 'Nytso2';
+  const GITHUB_USERNAME = 'lcoronelr';
 
   // Enhanced background shapes movement - VISIBLE WHITE SHAPES
   useEffect(() => {
