@@ -45,7 +45,7 @@ const Footer = () => {
             <div className="footer-social">
               <h4>Connect</h4>
               <div className="social-links">
-                <a href="https://github.com/Nytso2" target="_blank" rel="noopener noreferrer" className="social-link">
+                <a href="https://github.com/lcoronelr" target="_blank" rel="noopener noreferrer" className="social-link">
                   GitHub
                 </a>
                 <a href="https://www.linkedin.com/in/luis-coronel-8776442ab" target="_blank" rel="noopener noreferrer" className="social-link">
