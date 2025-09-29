@@ -92,13 +92,13 @@ const About = ({ githubData, loading }) => {
   }, []);
 
   const skills = [
-    { name: 'Python', level: 95, iconClass: 'devicon-python-plain' },
-    { name: 'C', level: 90, iconClass: 'devicon-c-plain' },
+    { name: 'Python', level: 90, iconClass: 'devicon-python-plain' },
+    { name: 'Java', level: 90, iconClass: 'devicon-java-plain' }, 
+    { name: 'C', level: 80, iconClass: 'devicon-c-plain' },
     { name: 'React', level: 80, iconClass: 'devicon-react-original' },
     { name: 'JavaScript', level: 80, iconClass: 'devicon-javascript-plain' },
-    { name: 'C++', level: 80, iconClass: 'devicon-cplusplus-plain' },
     { name: 'CSS', level: 80, iconClass: 'devicon-css3-plain' },
-    { name: 'R', level: 70, iconClass: 'devicon-rstudio-plain' }, 
+    { name: 'C++', level: 70, iconClass: 'devicon-cplusplus-plain' },
     { name: 'Swift', level: 70, iconClass: 'devicon-swift-plain' },
   ];
 
