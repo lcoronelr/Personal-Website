@@ -6,7 +6,7 @@ const Hero = () => {
   const [isDeleting, setIsDeleting] = useState(false);
   
   useEffect(() => {
-    const texts = ['Web Developer', 'CS & Business Undergrad', 'UI/UX Enthusiast', 'Problem Solver','Quick Learner'];
+    const texts = ['Aspiring Full-Stack Web Developer', 'CS & Business Undergrad', 'UI/UX Enthusiast', 'Problem Solver','Quick Learner'];
     
     const typeSpeed = isDeleting ? 50 : 100;
     const currentFullText = texts[textIndex];
