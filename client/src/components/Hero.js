@@ -66,7 +66,7 @@ const Hero = () => {
               </a>
             </div>
             <div className="hero-social">
-              <a href="https://github.com/Nytso2" target="_blank" rel="noopener noreferrer" className="social-link">
+              <a href="https://github.com/lcoronelr" target="_blank" rel="noopener noreferrer" className="social-link">
                 <span>GitHub</span>
               </a>
               <a href="https://www.linkedin.com/in/luis-coronel-8776442ab/" target="_blank" rel="noopener noreferrer" className="social-link">
