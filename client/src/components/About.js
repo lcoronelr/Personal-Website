@@ -93,9 +93,9 @@ const About = ({ githubData, loading }) => {
 
   const skills = [
     { name: 'Python', level: 90, iconClass: 'devicon-python-plain' },
-    { name: 'Java', level: 90, iconClass: 'devicon-java-plain' }, 
-    { name: 'Haskell', level: 80, iconClass: 'devicon-haskell-plain' },
-    { name: 'React', level: 79, iconClass: 'devicon-react-original' },
+    { name: 'Java', level: 85, iconClass: 'devicon-java-plain' }, 
+    { name: 'Haskell', level: 75, iconClass: 'devicon-haskell-plain' },
+    { name: 'React', level: 75, iconClass: 'devicon-react-original' },
     { name: 'JavaScript', level: 75, iconClass: 'devicon-javascript-plain' },
     { name: 'C', level: 70, iconClass: 'devicon-css3-plain' },
     { name: 'C++', level: 70, iconClass: 'devicon-cplusplus-plain' },
