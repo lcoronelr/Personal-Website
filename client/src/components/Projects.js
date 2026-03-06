@@ -214,7 +214,10 @@ const Projects = ({ projects, loading }) => {
     if (name.includes('phreeqc') || name.includes('inverse')){
       return <img src="images/phreeqc.png" alt="Phreeqc" className='project-image-icon' />;
     }
-    
+    if (name.includes('lost') || name.includes('inverse')){
+      return <img src="images/Lost_In_The_Dark.png" alt="Lost In The Dark" className='  project-image-icon' />;
+    }
+
     // Use language-based icons for Frontend Development
     if (language === 'Frontend Development') return '🌐';
     if (language === 'Python') return '🐍';
