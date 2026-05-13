@@ -2,11 +2,11 @@
 
 A modern, responsive portfolio website built with React and Node.js, showcasing my projects, skills, and experience.
 
-## 🚀 Live Demo
+## Live Demo
 
 [View Live Site](https://luiscoronelrivera.com)
 
-## ✨ Features
+## Features
 
 - **Responsive Design** - Optimized for desktop, tablet, and mobile
 - **Dynamic Project Showcase** - Automatically fetches latest GitHub repositories
@@ -15,7 +15,7 @@ A modern, responsive portfolio website built with React and Node.js, showcasing 
 - **GitHub Integration** - Real-time stats and repository data
 - **Modern UI/UX** - Clean, minimalist design with glassmorphism effects
 
-## 🛠️ Tech Stack
+## Tech Stack
 
 - **Frontend:** React, CSS3, HTML5
 - **Backend:** Node.js, Express.js
@@ -23,7 +23,7 @@ A modern, responsive portfolio website built with React and Node.js, showcasing 
 - **Deployment:** Cloudflare Pages
 - **Tools:** VS Code, Git, npm
 
-## 🏃‍♂️ Quick Start
+## Quick Start
 
 ### Prerequisites
 - Node.js (v18+)
@@ -43,6 +43,7 @@ cd client && npm install && cd ..
 npm run dev
 ```
 3. Open http://localhost:3000 in your browser
+
 ## License
-📝 License
+
 This project is open source and available under the MIT License.
