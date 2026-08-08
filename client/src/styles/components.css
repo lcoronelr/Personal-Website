@@ -97,9 +97,51 @@
   height: 8px;
   background: var(--accent-color);
   border-radius: 50%;
-  box-shadow: 
+  box-shadow:
     0 0 10px rgba(0, 122, 255, 0.5),
     0 0 20px rgba(0, 122, 255, 0.3);
+}
+
+/* Mobile Menu Toggle (hamburger) */
+.menu-toggle {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  width: 44px;
+  height: 44px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  z-index: 1001;
+}
+
+.menu-toggle span {
+  display: block;
+  width: 22px;
+  height: 2px;
+  background: var(--primary-color);
+  border-radius: 2px;
+  transition: all 0.3s ease;
+}
+
+.menu-toggle.open span:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+
+.menu-toggle.open span:nth-child(2) {
+  opacity: 0;
+}
+
+.menu-toggle.open span:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
+}
+
+/* Mobile Nav Panel */
+.nav-mobile {
+  display: none;
 }
 
 /* Hero Styles - Clean & Minimalist */
@@ -543,6 +585,50 @@
     display: none;
   }
 
+  .menu-toggle {
+    display: flex;
+  }
+
+  .nav-mobile {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: rgba(10, 10, 11, 0.98);
+    backdrop-filter: blur(30px);
+    border-bottom: 1px solid var(--border-color);
+    padding: 0.5rem 2rem 1.5rem;
+    gap: 0.25rem;
+    transform: translateY(-8px);
+    opacity: 0;
+    pointer-events: none;
+    transition: all 0.3s ease;
+  }
+
+  .nav-mobile.open {
+    transform: translateY(0);
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  .nav-mobile .nav-link {
+    width: 100%;
+    text-align: left;
+    padding: 0.9rem 0;
+    font-size: 1.05rem;
+    border-bottom: 1px solid var(--border-color);
+  }
+
+  .nav-mobile .nav-link:last-child {
+    border-bottom: none;
+  }
+
+  .nav-mobile .nav-link.active::after {
+    content: none;
+  }
+
   .hero-buttons {
     flex-direction: column;
     align-items: center;
@@ -582,6 +668,18 @@
   .hero-avatar {
     width: 250px;
     height: 250px;
+  }
+
+  .ring-1 {
+    inset: -25px;
+  }
+
+  .ring-2 {
+    inset: -15px;
+  }
+
+  .ring-3 {
+    inset: -25px;
   }
 
   .hero-buttons {

@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 
 const Header = ({ activeSection }) => {
   const [isScrolled, setIsScrolled] = useState(false);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   useEffect(() => {
     let ticking = false;
@@ -27,7 +28,16 @@ const Header = ({ activeSection }) => {
     if (element) {
       element.scrollIntoView({ behavior: 'smooth' });
     }
+    setIsMenuOpen(false);
   };
+
+  // Lock body scroll while the mobile menu is open
+  useEffect(() => {
+    document.body.style.overflow = isMenuOpen ? 'hidden' : '';
+    return () => {
+      document.body.style.overflow = '';
+    };
+  }, [isMenuOpen]);
 
   const navItems = [
     { id: 'home', label: 'Home' },
@@ -55,8 +65,31 @@ const Header = ({ activeSection }) => {
               </button>
             ))}
           </nav>
+
+          <button
+            className={`menu-toggle ${isMenuOpen ? 'open' : ''}`}
+            onClick={() => setIsMenuOpen((open) => !open)}
+            aria-label={isMenuOpen ? 'Close menu' : 'Open menu'}
+            aria-expanded={isMenuOpen}
+          >
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
         </div>
       </div>
+
+      <nav className={`nav-mobile ${isMenuOpen ? 'open' : ''}`}>
+        {navItems.map((item) => (
+          <button
+            key={item.id}
+            className={`nav-link ${activeSection === item.id ? 'active' : ''}`}
+            onClick={() => scrollToSection(item.id)}
+          >
+            {item.label}
+          </button>
+        ))}
+      </nav>
     </header>
   );
 };

@@ -468,7 +468,7 @@ section:not(.hero)::before {
 
 @media (max-width: 480px) {
   .container {
-    padding: 0 1.5rem;
+    padding: 0 16px;
   }
 
   section {
