@@ -16,12 +16,17 @@ function App() {
 
   // Enhanced background shapes movement - VISIBLE WHITE SHAPES
   useEffect(() => {
-    const handleScroll = () => {
+    // Static elements - query once instead of on every scroll event
+    const shapes = document.querySelectorAll('.bg-shape');
+    const heroText = document.querySelector('.hero-text');
+    const meshes = document.querySelectorAll('.gradient-mesh');
+    const progressBar = document.querySelector('.progress-bar');
+
+    let ticking = false;
+
+    const updateScrollEffects = () => {
       const scrolled = window.pageYOffset;
-      const shapes = document.querySelectorAll('.bg-shape');
-      const heroText = document.querySelector('.hero-text');
-      const meshes = document.querySelectorAll('.gradient-mesh');
-      
+
       // Enhanced parallax for ALL FIVE geometric shapes - MORE VISIBLE
       if (shapes[0]) {
         shapes[0].style.transform = `rotate(-15deg) translateY(${scrolled * -0.4}px) translateX(${scrolled * 0.1}px) rotate(${scrolled * 0.05}deg)`;
@@ -43,7 +48,7 @@ function App() {
         shapes[4].style.transform = `rotate(-35deg) translateY(${scrolled * -0.35}px) translateX(${scrolled * 0.12}px) rotate(${scrolled * -0.04}deg)`;
         shapes[4].style.opacity = '0.6';
       }
-      
+
       // Enhanced mesh movement
       meshes.forEach((mesh, index) => {
         const speed = 0.1 + (index * 0.05);
@@ -51,21 +56,20 @@ function App() {
         const yMovement = scrolled * -speed;
         mesh.style.transform = `translateY(${yMovement}px) translateX(${xMovement}px) scale(${1 + Math.sin(scrolled * 0.001) * 0.1})`;
       });
-      
+
       // Enhanced hero text movement
       if (heroText) {
         const rate = scrolled * -0.5;
         const opacity = Math.max(1 - scrolled * 0.003, 0);
         const scale = Math.max(1 - scrolled * 0.0003, 0.7);
-        
+
         heroText.style.transform = `translateY(${rate}px) scale(${scale})`;
         heroText.style.opacity = opacity;
       }
-      
+
       // Enhanced progress bar with glow effect
       const winHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
       const scrollPercent = (scrolled / winHeight);
-      const progressBar = document.querySelector('.progress-bar');
       if (progressBar) {
         progressBar.style.transform = `scaleX(${scrollPercent})`;
         progressBar.style.boxShadow = `
@@ -73,9 +77,18 @@ function App() {
           0 0 ${40 + scrollPercent * 40}px rgba(0, 122, 255, ${0.2 + scrollPercent * 0.2})
         `;
       }
+
+      ticking = false;
     };
 
-    window.addEventListener('scroll', handleScroll);
+    const handleScroll = () => {
+      if (!ticking) {
+        window.requestAnimationFrame(updateScrollEffects);
+        ticking = true;
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
@@ -156,8 +169,10 @@ function App() {
 
   // Enhanced active section tracking
   useEffect(() => {
-    const handleScroll = () => {
-      const sections = ['home', 'about', 'projects', 'contact'];
+    const sections = ['home', 'about', 'projects', 'contact'];
+    let ticking = false;
+
+    const updateActiveSection = () => {
       const scrollPosition = window.scrollY + window.innerHeight / 3;
 
       for (let i = sections.length - 1; i >= 0; i--) {
@@ -167,9 +182,18 @@ function App() {
           break;
         }
       }
+
+      ticking = false;
     };
 
-    window.addEventListener('scroll', handleScroll);
+    const handleScroll = () => {
+      if (!ticking) {
+        window.requestAnimationFrame(updateActiveSection);
+        ticking = true;
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 

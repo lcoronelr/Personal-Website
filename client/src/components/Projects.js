@@ -182,40 +182,40 @@ const Projects = ({ projects, loading }) => {
     
     // Check for specific project types first
     if (name.includes('personal') || name.includes('portfolio') || name.includes('website')) {
-      return <img src="images/website.png" alt="Personal Website" className="project-image-icon" />;
+      return <img src="images/website.webp" alt="Personal Website" className="project-image-icon" />;
     }
     if (name.includes('interpreter') || name.includes('arduino')) {
-      return <img src="images/arduino.png" alt="Arduino Interpreter" className="project-image-icon" />;
+      return <img src="images/arduino.webp" alt="Arduino Interpreter" className="project-image-icon" />;
     }
     if (name.includes('packet') || name.includes('analyzer')) {
-      return <img src="images/packetanalyzer.png" alt="Packet Analyzer" className="project-image-icon" />;
+      return <img src="images/packetanalyzer.webp" alt="Packet Analyzer" className="project-image-icon" />;
     }
     if (name.includes('whiteboard')) {
-      return <img src="images/whiteboard.png" alt="Whiteboard" className="project-image-icon" />;
+      return <img src="images/whiteboard.webp" alt="Whiteboard" className="project-image-icon" />;
     }
     if (name.includes('keyauth') || name.includes('launcher')) {
-      return <img src="images/keyauth.png" alt="KeyAuth Launcher" className="project-image-icon" />;
+      return <img src="images/keyauth.webp" alt="KeyAuth Launcher" className="project-image-icon" />;
     }
     if (name.includes('crazyfile') || name.includes('opencv')) {
-      return <img src="images/crazyflie.png" alt="CrazyFile OpenCV" className="project-image-icon" />;
+      return <img src="images/crazyflie.webp" alt="CrazyFile OpenCV" className="project-image-icon" />;
     }
     if (name.includes('simulation')) {
-      return <img src="images/crazyflie.png" alt="Simulation" className="project-image-icon" />;
+      return <img src="images/crazyflie.webp" alt="Simulation" className="project-image-icon" />;
     }
     if (name.includes('nemo')) {
-      return <img src="images/nemp.png" alt="Nemo" className="project-image-icon" />;
+      return <img src="images/nemp.webp" alt="Nemo" className="project-image-icon" />;
     }
     if (name.includes('kernel') || name.includes('spy')) {
-      return <img src="images/kernelspy.png" alt="Kernel Spy" className="project-image-icon" />;
+      return <img src="images/kernelspy.webp" alt="Kernel Spy" className="project-image-icon" />;
     }
     if (name.includes('eduroam')) {
-      return <img src="images/eduroam.png" alt="Eduroam" className="project-image-icon" />;
+      return <img src="images/eduroam.webp" alt="Eduroam" className="project-image-icon" />;
     }
     if (name.includes('phreeqc') || name.includes('inverse')){
-      return <img src="images/phreeqc.png" alt="Phreeqc" className='project-image-icon' />;
+      return <img src="images/phreeqc.webp" alt="Phreeqc" className='project-image-icon' />;
     }
     if (name.includes('lost') || name.includes('inverse')){
-      return <img src="images/Lost_In_The_Dark.png" alt="Lost In The Dark" className='  project-image-icon' />;
+      return <img src="images/Lost_In_The_Dark.webp" alt="Lost In The Dark" className='  project-image-icon' />;
     }
 
     // Use language-based icons for Frontend Development

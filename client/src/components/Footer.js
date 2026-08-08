@@ -27,16 +27,16 @@ const Footer = () => {
             <div className="footer-links">
               <h4>Quick Links</h4>
               <nav className="footer-nav">
-                <button onClick={() => scrollToSection('home')} style={{ background: 'none', border: 'none', color: 'var(--secondary-color)', textDecoration: 'none', transition: 'all 0.3s ease', padding: '0.5rem 0', fontWeight: '500', fontSize: '1rem', cursor: 'pointer', textAlign: 'left', fontFamily: 'inherit' }}>
+                <button onClick={() => scrollToSection('home')}>
                   Home
                 </button>
-                <button onClick={() => scrollToSection('about')} style={{ background: 'none', border: 'none', color: 'var(--secondary-color)', textDecoration: 'none', transition: 'all 0.3s ease', padding: '0.5rem 0', fontWeight: '500', fontSize: '1rem', cursor: 'pointer', textAlign: 'left', fontFamily: 'inherit' }}>
+                <button onClick={() => scrollToSection('about')}>
                   About
                 </button>
-                <button onClick={() => scrollToSection('projects')} style={{ background: 'none', border: 'none', color: 'var(--secondary-color)', textDecoration: 'none', transition: 'all 0.3s ease', padding: '0.5rem 0', fontWeight: '500', fontSize: '1rem', cursor: 'pointer', textAlign: 'left', fontFamily: 'inherit' }}>
+                <button onClick={() => scrollToSection('projects')}>
                   Projects
                 </button>
-                <button onClick={() => scrollToSection('contact')} style={{ background: 'none', border: 'none', color: 'var(--secondary-color)', textDecoration: 'none', transition: 'all 0.3s ease', padding: '0.5rem 0', fontWeight: '500', fontSize: '1rem', cursor: 'pointer', textAlign: 'left', fontFamily: 'inherit' }}>
+                <button onClick={() => scrollToSection('contact')}>
                   Contact
                 </button>
               </nav>
